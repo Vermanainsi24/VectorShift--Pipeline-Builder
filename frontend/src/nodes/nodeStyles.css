@@ -1,0 +1,58 @@
+.vs-node {
+  min-width: 180px;
+  max-width: 420px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #ffffff 0%, #f7fafc 100%);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  padding: 8px;
+  font-family: "Inter", sans-serif;
+  color: #0f172a;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vs-node-header {
+  font-weight: 600;
+  font-size: 14px;
+  color: #0b1220;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 4px;
+  margin-bottom: 4px;
+}
+
+.vs-node-body {
+  display: flex;
+  gap: 8px;
+}
+
+.vs-node-handles {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.vs-node-handles-left {
+  align-items: flex-start;
+}
+
+.vs-node-handles-right {
+  align-items: flex-end;
+}
+
+.vs-handle-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.vs-handle-label {
+  font-size: 12px;
+  color: #475569;
+}
+
+.vs-node-content {
+  flex: 1;
+  padding: 6px;
+}

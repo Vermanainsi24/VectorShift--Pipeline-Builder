@@ -1,0 +1,146 @@
+/* src/nodes/node-ui.css - clean square card node style */
+
+.vs-square-node {
+  width: 110px;
+  height: 110px;
+  border-radius: 12px;
+  background: #fff;
+  border: 2px solid #e6e9ee;
+  box-shadow: 0 6px 18px rgba(15,23,42,0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  color: #111827;
+}
+
+.vs-square-node:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(15,23,42,0.08);
+  border-color: #d6d9df;
+}
+
+.vs-node-icon {
+  width: 34px;
+  height: 34px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  color: #334155;
+}
+
+.vs-node-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+  text-align: center;
+}
+
+/* optional smaller label version (if you want two-line text) */
+.vs-node-sub {
+  font-size: 11px;
+  color: #6b7280;
+  text-align: center;
+}
+
+/* make handles unobtrusive (small dot) */
+.react-flow__handle {
+  width: 10px;
+  height: 10px;
+  border-radius: 6px;
+  background: #111827;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 6px rgba(2,6,23,0.12);
+}
+
+/* keep nodes compact on minimap */
+.react-flow__node.vs-square-node {
+  transform: none;
+}
+/* Node card - improved Input/Output styling */
+.vs-node-card {
+  width: 300px;
+  min-height: 120px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 10px 24px rgba(2,6,23,0.08);
+  border: 1px solid rgba(15,23,42,0.06);
+  padding: 10px;
+  box-sizing: border-box;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+}
+
+/* header */
+.vs-node-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+.vs-node-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+  padding-left: 6px;
+}
+
+/* body layout */
+.vs-node-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 4px 4px 8px 4px;
+}
+
+/* labels */
+.vs-label {
+  font-size: 13px;
+  color: #374151;
+  margin-bottom: 4px;
+}
+
+/* inputs */
+.vs-input {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(15,23,42,0.08);
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  background: #fbfdff;
+  transition: box-shadow .12s ease, border-color .12s ease;
+}
+.vs-input:focus {
+  border-color: #06b6d4;
+  box-shadow: 0 6px 18px rgba(6,182,212,0.08);
+}
+
+/* selects */
+.vs-select {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(15,23,42,0.08);
+  background: #fff;
+  font-size: 14px;
+}
+
+/* make handles more visible */
+.react-flow__handle {
+  width: 12px;
+  height: 12px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(2,6,23,0.12);
+}
+
+/* if node is selected give accent border */
+.react-flow__node.selected .vs-node-card,
+.vs-node-card.selected {
+  border: 2px solid #06b6d4;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(6,182,212,0.08);
+}

@@ -1,0 +1,421 @@
+/* --------------------------------------------------
+   Global Theme
+-------------------------------------------------- */
+:root {
+  --bg: #f6f8fa;
+  --panel-bg: #ffffff;
+  --muted: #6b7280;
+  --accent: #02007d; /* teal-ish */
+  --primary: #0f172a;
+  --toolbar-bg: rgba(15,23,42,0.95);
+  --card-shadow: 0 8px 24px rgba(15, 23, 42, .06);
+  --glass: rgba(255,255,255,0.6);
+}
+
+/* --------------------------------------------------
+   Page Base
+-------------------------------------------------- */
+body, html, #root {
+  height: 100%;
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, #06203a 0%, #0c18a0 100%);
+  color: var(--primary);
+  overflow: hidden;
+}
+
+/* --------------------------------------------------
+   App Shell Layout
+-------------------------------------------------- */
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  gap: 0;
+}
+
+/* --------------------------------------------------
+   Header / Branding
+-------------------------------------------------- */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: linear-gradient(90deg, rgba(161, 216, 226, 0.06), rgba(216, 216, 233, 0.03));
+  border-bottom: 1px solid rgba(15,23,42,0.04);
+  /* -webkit-backdrop-filter:blur(4px); */
+}
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.brand .logo {
+  width: 36px;
+  height: 36px;
+  background: var(--toolbar-bg);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgba(15,23,42,0.08);
+}
+.brand h1 {
+  font-size: 16px;
+  margin: 0;
+  letter-spacing: -0.2px;
+}
+
+/* --------------------------------------------------
+   Toolbar Row
+-------------------------------------------------- */
+.pipeline-toolbar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 18px;
+}
+.pipeline-toolbar .draggable {
+  background: var(--toolbar-bg);
+  color: white;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-weight: 600;
+  box-shadow: 0 8px 22px rgba(2,6,23,0.18);
+  cursor: grab;
+  transition: transform .16s ease, box-shadow .16s ease;
+  /* user-select: none; */
+}
+.pipeline-toolbar .draggable:active {
+  cursor: grabbing;
+  transform: translateY(1px);
+}
+.pipeline-toolbar .draggable:hover {
+  transform: translateY(-4px);
+}
+
+/* --------------------------------------------------
+   React Flow Area
+-------------------------------------------------- */
+.reactflow-wrapper {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* --------------------------------------------------
+   Node Card Base
+-------------------------------------------------- */
+.vs-node {
+  background: var(--panel-bg);
+  border-radius: 10px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(15,23,42,0.06);
+  padding: 10px;
+  font-size: 13px;
+  color: var(--primary);
+  min-width: 160px;
+  transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
+}
+.vs-node:hover {
+  box-shadow: 0 12px 28px rgba(15,23,42,0.08);
+  transform: translateY(-2px);
+}
+
+/* Node Header / Title */
+.vs-node .vs-node-title {
+  font-weight: 700;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+/* Node Inputs */
+.vs-node textarea,
+.vs-node input,
+.vs-node select {
+  font-size: 13px;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid rgba(15,23,42,0.06);
+  background: rgba(245,247,250,1);
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.vs-node input:focus,
+.vs-node textarea:focus,
+.vs-node select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(6,182,212,0.15);
+}
+
+/* Muted Helper Text */
+.vs-node .muted {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* --------------------------------------------------
+   Selected Node Highlight
+-------------------------------------------------- */
+.react-flow__node.selected,
+.vs-node.selected {
+  outline: 3px solid rgba(6,182,212,0.95);
+  box-shadow: 0 12px 30px rgba(6,182,212,0.12),
+              0 2px 6px rgba(2,6,23,0.06);
+  transform: translateY(-4px);
+  transition: box-shadow .18s ease, transform .12s ease, outline .12s ease;
+  z-index: 999;
+}
+.react-flow__node.selected .react-flow__handle,
+.vs-node.selected .react-flow__handle {
+  transform: scale(1.15);
+  background: linear-gradient(180deg, #06b6d4, #0891b2);
+  box-shadow: 0 6px 14px rgba(6,182,212,0.16);
+}
+
+/* --------------------------------------------------
+   Floating Submit Button
+-------------------------------------------------- */
+.submit-float {
+  position: fixed;
+  left: 14px;
+  bottom: 18px;
+  z-index: 9999;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.12);
+}
+.submit-float button {
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .15s ease, transform .15s ease;
+}
+.submit-float button:hover {
+  background: #0891b2;
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------
+   React Flow Controls & MiniMap
+-------------------------------------------------- */
+.react-flow__controls {
+  left: 14px !important;
+  bottom: 120px !important;
+}
+.react-flow__minimap {
+  right: 14px !important;
+  bottom: 14px !important;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(2,6,23,0.08);
+  overflow: hidden;
+}
+.react-flow__minimap > svg {
+  background: linear-gradient(180deg, rgba(244,247,250,1), rgba(235,242,247,1));
+}
+.react-flow__minimap .react-flow__node {
+  opacity: 0.9;
+}
+
+/* --------------------------------------------------
+   Error Modal + Backdrop
+-------------------------------------------------- */
+.app-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(2,6,23,0.48);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  animation: fadeIn 0.25s ease;
+}
+.app-modal {
+  width: min(680px, 92%);
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px 22px;
+  box-shadow: 0 18px 60px rgba(2,6,23,0.28);
+  border: 1px solid rgba(15,23,42,0.06);
+  animation: slideUp 0.25s ease;
+}
+.app-modal h2 {
+  margin: 0 0 6px 0;
+  font-size: 18px;
+  color: #e4e7ef;
+}
+.app-modal p {
+  margin: 8px 0 12px 0;
+  color: #e6e9ed;
+  line-height: 1.45;
+}
+.app-modal .error-badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg,#ef4444,#f97316);
+  color: white;
+  font-weight: 700;
+  margin-right: 8px;
+  font-size: 13px;
+}
+.app-modal .modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 14px;
+}
+.app-modal .btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+}
+.app-modal .btn-primary {
+  background: #06b6d4;
+  color: #fff;
+}
+.app-modal .btn-primary:hover {
+  background: #0891b2;
+}
+.app-modal .btn-ghost {
+  background: transparent;
+  color: #d2d7e0;
+  border: 1px solid rgba(15,23,42,0.06);
+}
+.app-modal .btn-ghost:hover {
+  background: rgba(15,23,42,0.04);
+}
+
+/* --------------------------------------------------
+   Animations
+-------------------------------------------------- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { transform: translateY(15px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* --------------------------------------------------
+   Responsive Tweaks
+-------------------------------------------------- */
+@media (max-width: 900px) {
+  .pipeline-toolbar {
+    gap: 8px;
+    padding: 8px;
+    overflow-x: auto;
+  }
+  .pipeline-toolbar .draggable {
+    padding: 10px;
+  }
+  .app-header {
+    padding: 10px;
+  }
+}
+/* Header Styling */
+.app-header {
+  color: #f1f5f9; /* 💡 Change this to any color you like */
+  background-color: #185dde;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Optional: make the brand text stand out more */
+.brand h1 {
+  color: #ffffff; /* title text color */
+}
+
+.brand span {
+  color: #d4d7c8; /* subtitle / lighter color */
+}
+
+/* Right-side text */
+.header-right {
+  color: #cbd5e1; /* soft gray-blue */
+}
+
+
+
+/* Force minimap visible & shapes styled (debug) */
+.react-flow__minimap {
+  width: 180px !important;
+  height: 120px !important;
+  right: 14px !important;
+  bottom: 14px !important;
+  border-radius: 8px;
+  overflow: visible !important;
+  background: linear-gradient(180deg,#f8fafc,#f1f5f9) !important;
+  border: 1px solid rgba(15,23,42,0.04) !important;
+  box-shadow: 0 8px 24px rgba(2,6,23,0.08) !important;
+  z-index: 9999 !important;
+}
+
+/* Ensure svg has full area */
+.react-flow__minimap > svg {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+}
+
+/* Make any rectangles / shapes visible */
+.react-flow__minimap rect,
+.react-flow__minimap path,
+.react-flow__minimap g,
+.react-flow__minimap circle {
+  opacity: 1 !important;
+  fill: #e6eef9 !important;
+  stroke: #7c93b3 !important;
+  stroke-width: 1 !important;
+}
+/* Force minimap visible and style shapes (debug-safe) */
+.react-flow__minimap {
+  width: 200px !important;
+  height: 140px !important;
+  right: 200px !important;
+  bottom: 60px !important;
+  border-radius: 10px !important;
+  background: linear-gradient(180deg,#ffffff,#7b9cd0) !important;
+  box-shadow: 0 8px 22px rgba(2,6,23,0.09) !important;
+  overflow: visible !important;
+  z-index: 99999 !important;
+  position: absolute !important;
+}
+
+/* Make svg full size */
+.react-flow__minimap > svg {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+}
+
+/* Make minimap shapes visible */
+.react-flow__minimap rect,
+.react-flow__minimap path,
+.react-flow__minimap circle,
+.react-flow__minimap g {
+  opacity: 1 !important;
+  fill-opacity: 1 !important;
+  stroke-opacity: 1 !important;
+  stroke: #64748b !important;
+  fill: #e6eef9 !important;
+}
+.react-flow__minimap .react-flow__node {
+  stroke: #475569 !important;
+  fill: #cbd5e1 !important;
+}
