@@ -7,10 +7,14 @@ from collections import defaultdict, deque
 
 app = FastAPI(title="Pipeline Parser")
 
-# Allow CORS for local frontend (adjust origin if needed)
+origins = [
+    "https://vector-shift-pipeline-builder-23gp.vercel.app/",  # ✅ exact Vercel URL
+    "http://localhost:5173",  # for local testing
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
+    allow_origins=origins,  # 👈 Don't leave as ["*"] in production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
